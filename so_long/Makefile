@@ -45,15 +45,4 @@ re: fclean all
 norm :
 	@norminette -R CheckForbiddenSourceHeader $(SRCS)
 
-m: fclean
-
-v:
-	@make re && make clean && clear && valgrind --leak-check=full --log-file="logfile.out" -v ./cub3D
-r:
-	@make re && make clean && clear && ./cub3D map/map3.car map/map1.car map/map2.car
-
-rr:
-	@make re && make clean && clear && ./cub3D map/map1.car
-
-
-.PHONY: all re clean fclean m
+.PHONY: all re clean fclean
