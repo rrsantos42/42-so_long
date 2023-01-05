@@ -6,7 +6,7 @@
 /*   By: rsantos <rsantos@student.42lisboa.com >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:25:41 by rsantos           #+#    #+#             */
-/*   Updated: 2022/11/16 01:07:17 by rsantos          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:01:50 by rsantos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void    putbackground(t_vars *vars, void *img)
         x = 0;
         y += 32;
     }
-    printf("%d\ntreata\n%d\n", vars->pos1,vars->pos2);
+
 }

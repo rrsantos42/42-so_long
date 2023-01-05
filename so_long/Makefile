@@ -45,4 +45,7 @@ re: fclean all
 norm :
 	@norminette -R CheckForbiddenSourceHeader $(SRCS)
 
+r:
+	make re && make clean && clear && ./so_long
+
 .PHONY: all re clean fclean
