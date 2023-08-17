@@ -1,11 +1,11 @@
 
-#CC			= 	gcc -fsanitize=address -g
+#CC			= 	gcc -fsanitize=address -g -Wall -Wextra -Werror
 CC			= 	gcc
-CFLAGS		= 	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS		=
 RM			= 	/bin/rm -f
 NAME		= 	so_long
 INCLUDES	= 	-Iheaders/
-SRCS		=   main.c $(shell find src/ -name '*.c')
+SRCS		=   $(wildcard *.c) $(wildcard src/*.c) $(wildcard src/Parser/*.c) $(wildcard src/gnl/*.c) $(wildcard src/engine/*.c) $(wildcard help_func/*.c)
 OBJS		= 	$(SRCS:.c=.o)
 
 

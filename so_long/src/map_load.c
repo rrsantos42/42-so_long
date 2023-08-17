@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../so_long.h"
-#include "get_next_line.h"
+#include "gnl/get_next_line.h"
 
 char    **map_load(char *path)
 {

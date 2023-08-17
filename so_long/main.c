@@ -33,22 +33,30 @@
 
 int main()
 {
-	int i;
-	int j;
+	int i = 0;
+	int j = 0;
 	char **map;
 	t_textu texturs;
 	t_vars	vars;
 	map = map_load("maps/map1.ber");
-	i = map_parsing(map);
-	
+    while (map[i])
+    {
+        while (map[i][j]) {
+            printf("%c", map[i][j]);
+            j++;
+        }
+        i++;
+        j = 0;
+    }
+
 	// vars.mlx = mlx_init();
 	// vars.win = mlx_new_window(vars.mlx, 800, 600, "So_long");
 	// texturs.img = mlx_xpm_file_to_image(vars.mlx, "texturs/tile003.xpm", &texturs.x, &texturs.y);
 	// putbackground(&vars, texturs.img);
  	// mlx_loop(vars.mlx);
-	if(i)
-		printf("mapa valido");
-	if(!i)
-		printf("mapa invalido");
+	if(map_parsing(map))
+		printf("\nmapa valido\n");
+    else
+		printf("\nmapa invalido\n");
 	return(0);
 }

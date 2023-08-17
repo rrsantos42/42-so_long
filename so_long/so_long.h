@@ -48,6 +48,7 @@ void	putplayer(int keycode, t_vars *vars);
 int		playermove(int keycode, t_vars *vars);
 int		map_parsing(char **map_arr);
 char	**map_load(char *path);
+int        ft_strlen(char *str);
 void	extracheck(char **map_arr);
 int		parsing_checkextras(char **map_arr);
 #endif

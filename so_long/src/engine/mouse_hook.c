@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsantos <rsantos@student.42lisboa.com >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 22:17:22 by rsantos           #+#    #+#             */
-/*   Updated: 2022/11/17 00:18:13 by rsantos          ###   ########.fr       */
+/*   Created: 2022/11/15 22:19:32 by rsantos           #+#    #+#             */
+/*   Updated: 2022/11/16 01:09:30 by rsantos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
-int	close_w(int keycode, t_vars *vars)
+int mouse_hook(int keycode, t_vars *vars)
 {
-	if (keycode == 65307)
-		mlx_destroy_window(vars->mlx, vars->win);
-	if (keycode)
+	if(keycode)
 		printf("%d\n", keycode);
-	return (0);
+	return(0);
+	
 }
