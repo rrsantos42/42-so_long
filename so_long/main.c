@@ -31,14 +31,14 @@
 // 	mlx_loop(vars.mlx);
 // }
 
-int main()
+int main(int ac, char **av)
 {
 	int i = 0;
 	int j = 0;
 	char **map;
 	t_textu texturs;
 	t_vars	vars;
-	map = map_load("maps/map1.ber");
+	map = map_load(av[1]);
     while (map[i])
     {
         while (map[i][j]) {

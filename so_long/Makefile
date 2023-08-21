@@ -1,6 +1,6 @@
 
 #CC			= 	gcc -fsanitize=address -g -Wall -Wextra -Werror
-CC			= 	gcc
+C			= 	gcc
 CFLAGS		=
 RM			= 	/bin/rm -f
 NAME		= 	so_long

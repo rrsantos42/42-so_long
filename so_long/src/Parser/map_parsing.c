@@ -12,63 +12,84 @@
 
 #include "../../so_long.h"
 
-int is_rectangle(char **map) {
+int is_rectangle(char **map_arr) {
     int rows = 0;
-    int cols = -1; // Set to an invalid value initially
-    while (map[rows]) {
-        int current_row_length = ft_strlen(map[rows]);
+    int collen;
+    int current_row_length;
 
-        // If cols is set for the first time, store its value
-        if (cols == -1) {
-            cols = current_row_length;
-        } else if (cols != current_row_length) {
-            // If any row has a different length than the first row
-            return (0); // Not a rectangle
-        }
-
+    collen = ft_strlen(map_arr[rows]) -1;
+    while (map_arr[rows]) {
+        current_row_length = ft_strlen(map_arr[rows]) - 1;
+        if (rows == map()->size - 1)
+            current_row_length += 2;
+        if (collen != current_row_length)
+            return (0);
         rows++;
     }
-
-    return (1); // It's a rectangle
+    return (1);
 }
 int is_valid_map(char **map, int rows, int cols) {
     int i = 0;
     int j = 0;
 
-    // Check top row for walls
     while (j < cols) {
-        if (map[0][j] != '1') {
+        if (map[0][j] != '1')
             return (0);
-        }
         j++;
     }
 
-    // Resetting j to check bottom row
     j = 0;
+//        printf("é isto->%c\n",map[1][rows -3]);
     while (j < cols) {
-        if (map[rows-1][j] != '1') {
+        if (map[j][rows -3] != '1')
             return (0);
-        }
         j++;
     }
 
-    // Check left and right columns for walls
-    while (i < rows) {
-        if (map[i][0] != '1' || map[i][cols-1] != '1') {
+    while (i < cols) {
+        if (map[i][0] != '1') {
             return (0);
         }
         i++;
     }
 
-    return (1);  // If all checks passed
+    return (1);
+}
+int validchar(char c)
+{
+    if (c != 'P' && c != 'C'&& c != 'E'&& c != '0' && c != '1')
+        return (0);
+    return (1);
+}
+int checker(char **map_arr)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (map_arr[i])
+    {
+        j = 0;
+        while (map_arr[i][j + 2])
+        {
+            if(!(validchar(map_arr[i][j])))
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    return (1);
 }
 
 int map_parsing(char **map_arr)
 {
     if(!(is_rectangle(map_arr)))
-        printf("1\n");
-//    if(is_valid_map(map_arr, ft_strlen(map_arr[0]) - 1, map()->size -1))
-//        return (0);
-    printf("cols->%d\nrows->%d\n", ft_strlen(map_arr[0]) - 1, map()->size);
+        return (0);
+    if(!(checker(map_arr)))
+        return (0);
+    if(!(is_valid_map(map_arr, ft_strlen(map_arr[0]), map()->size)))
+       return (0);
+    if(!(parsing_checkextras(map_arr)))
+        return (0);
     return (1);
 }
